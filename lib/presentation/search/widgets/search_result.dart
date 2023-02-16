@@ -3,7 +3,7 @@ import 'package:netflix_clone/core/constraints/constants.dart';
 import 'package:netflix_clone/presentation/search/widgets/title.dart';
 
 const imageUrl =
-    "https://www.themoviedb.org/t/p/w220_and_h330_face/tbaTFgGIaTL1Uhd0SMob6Dhi5cK.jpg";
+    "https://www.themoviedb.org/t/p/w220_and_h330_face/xFJHb43ZAnnuiDztxZYsmyopweb.jpg";
 
 class SearchResultWidgets extends StatelessWidget {
   const SearchResultWidgets({super.key});
@@ -22,7 +22,7 @@ class SearchResultWidgets extends StatelessWidget {
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,
             childAspectRatio: 1 / 1.5,
-            children: List.generate(20, (index) => MainCard()),
+            children: List.generate(20, (index) => const MainCard()),
           ),
         )
       ],
@@ -37,7 +37,7 @@ class MainCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          image: DecorationImage(
+          image: const DecorationImage(
             fit: BoxFit.cover,
             image: NetworkImage(imageUrl),
           ),
