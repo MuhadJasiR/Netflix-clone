@@ -3,14 +3,18 @@ import 'package:flutter/cupertino.dart';
 import '../../../core/constraints/constants.dart';
 
 class CustomButtonWidget extends StatelessWidget {
-  const CustomButtonWidget({
-    Key? key,
-    required this.title,
-    required this.icon,
-  }) : super(key: key);
+  const CustomButtonWidget(
+      {Key? key,
+      required this.title,
+      required this.icon,
+      this.iconSize = 30,
+      this.textSize = 18})
+      : super(key: key);
 
   final String title;
   final IconData icon;
+  final double iconSize;
+  final double textSize;
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +23,12 @@ class CustomButtonWidget extends StatelessWidget {
         Icon(
           icon,
           color: kColorWhite,
-          size: 30,
+          size: iconSize,
         ),
-        Text(title)
+        Text(
+          title,
+          style: TextStyle(fontSize: textSize),
+        )
       ],
     );
   }
