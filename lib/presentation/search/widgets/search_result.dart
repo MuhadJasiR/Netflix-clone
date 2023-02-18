@@ -40,8 +40,9 @@ class SearchResultWidgets extends StatelessWidget {
 }
 
 class MainCard extends StatelessWidget {
-  const MainCard({super.key, required this.imageUrl});
   final String imageUrl;
+  const MainCard({super.key, required this.imageUrl});
+
   @override
   Widget build(BuildContext context) {
     return Container(
