@@ -33,7 +33,7 @@ dependencies:
   build_runner: ^2.3.3
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
-  dio: ^5.0.0
+  dio: ^4.0.6
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.2

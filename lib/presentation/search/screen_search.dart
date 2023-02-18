@@ -31,9 +31,21 @@ class ScreenSearch extends StatelessWidget {
               suffixIcon: const Icon(CupertinoIcons.xmark_circle_fill,
                   color: Colors.grey),
               style: const TextStyle(color: Colors.white),
+              onChanged: (value) {
+                BlocProvider.of<SearchBloc>(context)
+                    .add(SearchMovie(movieQuary: value));
+              },
             ),
             kHeight,
-            Expanded(child: SearchIdleWidget())
+            Expanded(child: BlocBuilder<SearchBloc, SearchState>(
+              builder: (context, state) {
+                if (state.searchResultList.isEmpty) {
+                  return SearchIdleWidget();
+                } else {
+                  return SearchResultWidgets();
+                }
+              },
+            ))
             // Expanded(child: SearchResultWidgets())
           ],
         ),
