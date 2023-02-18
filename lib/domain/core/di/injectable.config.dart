@@ -29,7 +29,7 @@ _i1.GetIt $initGetIt(
     environmentFilter,
   );
   gh.lazySingleton<_i3.IDownloadsRepo>(() => _i4.DownloadsRepository());
-  gh.lazySingleton<_i5.SearchService>(() => _i6.SearchImpl());
+  gh.lazySingleton<_i5.SearchService>(() => _i6.SearchIpl());
   gh.factory<_i7.DownloadsBloc>(
       () => _i7.DownloadsBloc(get<_i3.IDownloadsRepo>()));
   gh.factory<_i8.SearchBloc>(() => _i8.SearchBloc(
