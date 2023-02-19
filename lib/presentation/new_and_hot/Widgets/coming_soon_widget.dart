@@ -47,7 +47,7 @@ class ComingSoonWidget extends StatelessWidget {
         ),
         Container(
           width: size.width - 50,
-          height: 450,
+          height: 490,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -57,9 +57,9 @@ class ComingSoonWidget extends StatelessWidget {
               ),
               Row(
                 children: [
-                  const Text(
-                    "TALL GIRL 2",
-                    style: TextStyle(
+                  Text(
+                    result.name ?? "No title found",
+                    style: const TextStyle(
                         fontSize: 40,
                         fontWeight: FontWeight.bold,
                         letterSpacing: -5),
@@ -94,9 +94,13 @@ class ComingSoonWidget extends StatelessWidget {
                 ),
               ),
               kHeight,
-              const Text(
-                "Landing the lead in the school musical is a \ndream come true for Jodi, untilhe pressure \nsends her confidence -and her relationship-\ninto a tailspin",
-                style: TextStyle(color: kColorGrey),
+              SizedBox(
+                width: 300,
+                child: Text(
+                  result.overview ??
+                      "Landing the lead in the school musical is a \ndream come true for Jodi, untilhe pressure \nsends her confidence -and her relationship-\ninto a tailspin",
+                  style: TextStyle(color: kColorGrey),
+                ),
               )
             ],
           ),

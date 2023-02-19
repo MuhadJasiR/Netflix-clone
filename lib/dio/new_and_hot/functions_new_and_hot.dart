@@ -16,7 +16,7 @@ Future comingSoonGet() async {
         "https://api.themoviedb.org/3/movie/upcoming?api_key=a7e3114c27794b303392f55bfc49f007");
 
     final result = Comingsoon.fromJson(response.data);
-    print(result.results!.first.backdropPath);
+    print("dddddd${result.results!.first.name}");
     listOfComing.value = result.results ?? [];
     listOfComing.notifyListeners();
   } catch (e) {}
