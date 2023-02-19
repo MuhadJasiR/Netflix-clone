@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/core/constraints/constants.dart';
+import 'package:netflix_clone/dio/new_and_hot/functions_new_and_hot.dart';
 
 class VideoListItem extends StatelessWidget {
   final int index;
@@ -36,15 +37,18 @@ class VideoListItem extends StatelessWidget {
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: const [
+                  children: [
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: 10),
-                      child: CircleAvatar(
-                        backgroundImage: NetworkImage(
-                            "https://www.themoviedb.org/t/p/w220_and_h330_face/kuf6dutpsT0vSVehic3EZIqkOBt.jpg"),
-                        radius: 30,
-                      ),
-                    ),
+                        padding: EdgeInsets.symmetric(vertical: 10),
+                        child: ValueListenableBuilder(
+                            valueListenable: listOfComing,
+                            builder: ((context, value, child) {
+                              return CircleAvatar(
+                                backgroundImage: NetworkImage(
+                                    "$imageAppendUrl${value[index].backdropPath}"),
+                                radius: 30,
+                              );
+                            }))),
                     VideoActionWidget(icon: Icons.emoji_emotions, title: "LOL"),
                     VideoActionWidget(icon: Icons.add, title: "My List"),
                     VideoActionWidget(icon: Icons.share, title: "Share"),

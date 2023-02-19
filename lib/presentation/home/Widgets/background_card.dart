@@ -16,16 +16,20 @@ class BackgroundCard extends StatelessWidget {
         ValueListenableBuilder(
             valueListenable: listOfComing,
             builder: ((context, value, child) {
-              return Container(
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(
-                            "$imageAppendUrl${value[7].posterPath}"))),
-                width: double.infinity,
-                height: 600,
-                // color: Colors.blue,
-              );
+              return listOfComing.value.isNotEmpty
+                  ? Container(
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(
+                                  "$imageAppendUrl${value[7].posterPath}"))),
+                      width: double.infinity,
+                      height: 600,
+                      // color: Colors.blue,
+                    )
+                  : CircularProgressIndicator(
+                      strokeWidth: 2,
+                    );
             })),
         Positioned(
           bottom: 0,
