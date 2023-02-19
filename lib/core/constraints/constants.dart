@@ -22,3 +22,4 @@ TextStyle kHomeTextStyle =
 //=========================================================================//
 
 const imageAppendUrl = "https://image.tmdb.org/t/p/w500";
+const youTubeUrl = "https://www.youtube.com/watch?v=";

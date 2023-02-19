@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_clone/dio/comingsoon/result.dart';
 import 'package:netflix_clone/presentation/home/Widgets/custom_button_widget.dart';
 
 import '../../../core/constraints/Colors.dart';
@@ -8,7 +9,10 @@ import '../../widgets/video_widget.dart';
 class ComingSoonWidget extends StatelessWidget {
   const ComingSoonWidget({
     Key? key,
+    required this.result,
   }) : super(key: key);
+
+  final Result result;
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +25,8 @@ class ComingSoonWidget extends StatelessWidget {
           height: 450,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: const [
-              Text(
+            children: [
+              const Text(
                 "FEB",
                 style: TextStyle(
                     fontSize: 15,
@@ -30,8 +34,10 @@ class ComingSoonWidget extends StatelessWidget {
                     color: kColorGrey),
               ),
               Text(
-                "11",
-                style: TextStyle(
+                result.firstAirDate == null
+                    ? "34"
+                    : result.firstAirDate!.substring(8, 10),
+                style: const TextStyle(
                     letterSpacing: 4,
                     fontSize: 30,
                     fontWeight: FontWeight.bold),
@@ -45,7 +51,10 @@ class ComingSoonWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              VideoWidget(),
+              VideoWidget(
+                imageUrl: result.backdropPath ?? 'No image found',
+                id: result.id ?? 0,
+              ),
               Row(
                 children: [
                   const Text(

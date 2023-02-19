@@ -3,15 +3,20 @@ import 'package:netflix_clone/core/constraints/constants.dart';
 
 class VideoListItem extends StatelessWidget {
   final int index;
+  final String image;
 
-  const VideoListItem({super.key, required this.index});
+  const VideoListItem({super.key, required this.index, required this.image});
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Container(
-          color: Colors.accents[index % Colors.accents.length],
+          // color: Colors.accents[index % Colors.accents.length],
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: NetworkImage("$imageAppendUrl$image"))),
         ),
         Align(
           alignment: Alignment.bottomCenter,

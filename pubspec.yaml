@@ -45,6 +45,7 @@ dependencies:
   json_annotation: ^4.8.0
   json_serializable: ^6.6.1
   video_player: ^2.5.1
+  youtube_player_flutter: 8.1.1
 
 dev_dependencies:
   flutter_lints: ^2.0.0

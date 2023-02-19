@@ -29,7 +29,7 @@ class EveryoneIsWatchingWidgets extends StatelessWidget {
           style: TextStyle(color: kColorGrey),
         ),
         kHeight50,
-        const VideoWidget(),
+        // const VideoWidget(id: ,),
         kHeight,
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
