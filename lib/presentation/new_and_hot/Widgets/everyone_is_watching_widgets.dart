@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_clone/dio/everyonewatching/result.dart';
 
 import '../../../core/constraints/Colors.dart';
 import '../../../core/constraints/constants.dart';
@@ -8,7 +9,9 @@ import '../../widgets/video_widget.dart';
 class EveryoneIsWatchingWidgets extends StatelessWidget {
   const EveryoneIsWatchingWidgets({
     Key? key,
+    required this.result,
   }) : super(key: key);
+  final Result result;
 
   @override
   Widget build(BuildContext context) {
@@ -16,20 +19,24 @@ class EveryoneIsWatchingWidgets extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         kHeight,
-        const Text(
-          "Friends ",
-          style: TextStyle(
+        Text(
+          result.title ?? "NO title found",
+          style: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
         kHeight,
-        const Text(
-          "This hit sitcom follows the merry misadventure of six\n20-something pass as they navigate the pitfalls of work,\nlife and love in 1990s Manhattan",
-          style: TextStyle(color: kColorGrey),
+        Text(
+          result.overview ??
+              "This hit sitcom follows the merry misadventure of six\n20-something pass as they navigate the pitfalls of work,\nlife and love in 1990s Manhattan",
+          style: const TextStyle(color: kColorGrey),
         ),
         kHeight50,
-        // const VideoWidget(id: ,),
+        VideoWidget(
+          imageUrl: result.backdropPath ?? "Image not found",
+          id: result.id ?? 1,
+        ),
         kHeight,
         Row(
           mainAxisAlignment: MainAxisAlignment.end,

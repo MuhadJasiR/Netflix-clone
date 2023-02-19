@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_clone/dio/new_and_hot/everyone_watching.dart';
 import 'package:netflix_clone/dio/new_and_hot/functions_new_and_hot.dart';
 import 'package:netflix_clone/presentation/widgets/video_widget.dart';
 
@@ -82,10 +83,15 @@ class ScreenNewAndHot extends StatelessWidget {
   }
 
   Widget _buildEveryOneIsWatching() {
-    return ListView.builder(
-        itemCount: 5,
-        itemBuilder: ((context, index) {
-          return const EveryoneIsWatchingWidgets();
+    everyOneWatch();
+    return ValueListenableBuilder(
+        valueListenable: everyOneWatching,
+        builder: ((context, value, child) {
+          return ListView.builder(
+              itemCount: 5,
+              itemBuilder: ((context, index) {
+                return EveryoneIsWatchingWidgets(result: value[index]);
+              }));
         }));
   }
 }

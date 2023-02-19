@@ -22,7 +22,7 @@ class ComingSoonWidget extends StatelessWidget {
       children: [
         SizedBox(
           width: 50,
-          height: 450,
+          height: 480,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -34,9 +34,9 @@ class ComingSoonWidget extends StatelessWidget {
                     color: kColorGrey),
               ),
               Text(
-                result.firstAirDate == null
+                result.releaseDate == null
                     ? "34"
-                    : result.firstAirDate!.substring(8, 10),
+                    : result.releaseDate!.substring(8, 10),
                 style: const TextStyle(
                     letterSpacing: 4,
                     fontSize: 30,
@@ -57,12 +57,15 @@ class ComingSoonWidget extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Text(
-                    result.name ?? "No title found",
-                    style: const TextStyle(
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: -5),
+                  SizedBox(
+                    width: 190,
+                    child: Text(
+                      result.title ?? "No title found",
+                      style: const TextStyle(
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: -5),
+                    ),
                   ),
                   const Spacer(),
                   Row(
@@ -86,8 +89,8 @@ class ComingSoonWidget extends StatelessWidget {
               kHeight,
               const Text("Coming on Friday"),
               kHeight,
-              const Text(
-                "TALL GIRL 2 ",
+              Text(
+                result.title ?? "no title found",
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -99,7 +102,9 @@ class ComingSoonWidget extends StatelessWidget {
                 child: Text(
                   result.overview ??
                       "Landing the lead in the school musical is a \ndream come true for Jodi, untilhe pressure \nsends her confidence -and her relationship-\ninto a tailspin",
-                  style: TextStyle(color: kColorGrey),
+                  style: const TextStyle(
+                    color: kColorGrey,
+                  ),
                 ),
               )
             ],
