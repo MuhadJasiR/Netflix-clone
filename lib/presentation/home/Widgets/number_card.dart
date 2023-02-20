@@ -1,13 +1,15 @@
 import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
+import 'package:netflix_clone/dio/comingvideo/result.dart';
+import 'package:netflix_clone/dio/southindianmovies/southindianmovie.dart';
 
 import '../../../core/constraints/constants.dart';
 
 class NumberCard extends StatelessWidget {
-  const NumberCard({super.key, required this.index});
+  const NumberCard({super.key, required this.index, required this.imageUrl});
 
   final int index;
-
+  final String imageUrl;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -23,10 +25,9 @@ class NumberCard extends StatelessWidget {
               height: 250,
               decoration: BoxDecoration(
                   borderRadius: kRadius10,
-                  image: const DecorationImage(
+                  image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: NetworkImage(
-                          "https://www.themoviedb.org/t/p/w220_and_h330_face/fHMqfsYyl3lskPK2RiFRwhzwuep.jpg"))),
+                      image: NetworkImage("$imageAppendUrl$imageUrl"))),
             ),
           ],
         ),

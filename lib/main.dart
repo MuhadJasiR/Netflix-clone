@@ -3,13 +3,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:netflix_clone/application/downloads/downlods_bloc.dart';
 import 'package:netflix_clone/core/constraints/Colors.dart';
+import 'package:netflix_clone/dio/southindianmovies/function_southindian_movie.dart';
 import 'package:netflix_clone/domain/core/di/injectable.dart';
 import 'package:netflix_clone/presentation/main_page/screen_main.dart';
 
 import 'application/search/search_bloc.dart';
+import 'dio/southindianmovies/top_10_show_in_india.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  getHomeSouthIndian();
+  getHomeTop10ShowIndia();
   await ConfigureInjection();
   runApp(const MyApp());
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_clone/dio/southindianmovies/southindianmovie.dart';
 import 'package:netflix_clone/presentation/home/Widgets/number_card.dart';
 
 import '../../../core/constraints/constants.dart';
@@ -7,8 +8,9 @@ import '../../widgets/main_title.dart';
 class NumberTitleCard extends StatelessWidget {
   const NumberTitleCard({
     Key? key,
+    required this.result,
   }) : super(key: key);
-
+  final List<ScrollImageHome> result;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,6 +26,7 @@ class NumberTitleCard extends StatelessWidget {
                 10,
                 (index) => NumberCard(
                       index: index,
+                      imageUrl: result[index].backgroundImage,
                     )),
           ),
         )
